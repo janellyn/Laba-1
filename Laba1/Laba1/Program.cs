@@ -81,6 +81,24 @@ public class MyLinkedList<T> : IEnumerable<T>
         return false;
     }
 
+    public bool Contains(T item)
+    {
+        if (head == null)
+            return false;
+
+        Node<T> current = head;
+
+        do
+        {
+            if (current.Data.Equals(item))
+                return true;
+
+            current = current.Next;
+        } while (current != head);
+
+        return false;
+    }
+
     public IEnumerator<T> GetEnumerator()
     {
         if (head != null)
