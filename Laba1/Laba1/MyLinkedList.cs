@@ -97,7 +97,10 @@ public class MyLinkedList<T> : IEnumerable<T>
         do
         {
             if (current.Data.Equals(item))
+            {
+                OnItemContain(item);
                 return true;
+            }
 
             current = current.Next;
         } while (current != head);
@@ -105,11 +108,12 @@ public class MyLinkedList<T> : IEnumerable<T>
         return false;
     }
 
-    public void Clear()
+    public void Clear(T item)
     {
         head = null;
         tail = null;
         count = 0;
+        OnItemClearUp(item);
     }
 
     public bool InsertAfter(T existingItem, T newItem)
@@ -156,7 +160,7 @@ public class MyLinkedList<T> : IEnumerable<T>
             head = newNode;
         }
         count++;
-        OnItemAdded(item);
+        OnItemAddedFirst(item);
     }
 
     public event Action<T> ItemAdded;
@@ -166,8 +170,6 @@ public class MyLinkedList<T> : IEnumerable<T>
     public event Action<T> Contain;
 
     public event Action<T> ClearUp;
-
-    public event Action<T> InsertAfterItem;
 
     public event Action<T> ItemAddedFirst;
 
@@ -189,11 +191,6 @@ public class MyLinkedList<T> : IEnumerable<T>
     protected virtual void OnItemClearUp(T item)
     {
         ClearUp?.Invoke(item);
-    }
-
-    protected virtual void OnInsertAfterItem(T item, T item2)
-    {
-        InsertAfterItem?.Invoke(item);
     }
 
     protected virtual void OnItemAddedFirst(T item)
