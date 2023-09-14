@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
-public class MyLinkedList<T> 
+public class MyLinkedList<T> : IEnumerable<T>
 {
     private Node<T> head;
     private Node<T> tail;
@@ -43,6 +43,24 @@ public class MyLinkedList<T>
             tail = newNode;
         }
         count++;
+    }
+
+    public IEnumerator<T> GetEnumerator()
+    {
+        if (head != null)
+        {
+            Node<T> current = head;
+            do
+            {
+                yield return current.Data;
+                current = current.Next;
+            } while (current != head);
+        }
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
     }
 }
  
