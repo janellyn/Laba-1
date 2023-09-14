@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 public class MyLinkedList<T> : IEnumerable<T>
 {
@@ -33,6 +29,11 @@ public class MyLinkedList<T> : IEnumerable<T>
     }
     public void Add(T item)
     {
+        if (item == null)
+        {
+            throw new ArgumentNullException($"{typeof(T)} {nameof(item)} is null");
+        }
+
         Node<T> newNode = new Node<T>(item);
         if (head == null)
         {
@@ -52,6 +53,11 @@ public class MyLinkedList<T> : IEnumerable<T>
 
     public bool Remove(T item)
     {
+        if (item == null)
+        {
+            throw new ArgumentNullException($"{typeof(T)} {nameof(item)} is null");
+        }
+
         if (head == null)
             return false;
 

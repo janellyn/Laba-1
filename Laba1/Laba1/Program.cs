@@ -18,7 +18,6 @@ class Program
         list.Add(3);
         list.Remove(2);
         list.Contains(3);
-        list.Contains(5);
         list.AddFirst(4);
 
         foreach (var item in list)
