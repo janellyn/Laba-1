@@ -99,6 +99,20 @@ public class MyLinkedList<T> : IEnumerable<T>
         return false;
     }
 
+    public event Action<T> ItemAdded;
+
+    public event Action<T> ItemRemoved;
+
+    protected virtual void OnItemAdded(T item)
+    {
+        ItemAdded?.Invoke(item);
+    }
+
+    protected virtual void OnItemRemoved(T item)
+    {
+        ItemRemoved?.Invoke(item);
+    }
+
     public IEnumerator<T> GetEnumerator()
     {
         if (head != null)
