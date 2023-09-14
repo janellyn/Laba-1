@@ -140,6 +140,25 @@ public class MyLinkedList<T> : IEnumerable<T>
         return false;
     }
 
+    public void AddFirst(T item)
+    {
+        Node<T> newNode = new Node<T>(item);
+        if (head == null)
+        {
+            head = newNode;
+            tail = newNode;
+            tail.Next = head;
+        }
+        else
+        {
+            newNode.Next = head;
+            tail.Next = newNode;
+            head = newNode;
+        }
+        count++;
+        OnItemAdded(item);
+    }
+
     public event Action<T> ItemAdded;
 
     public event Action<T> ItemRemoved;
