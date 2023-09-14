@@ -1,5 +1,4 @@
-﻿
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 
 public class MyLinkedList<T> 
@@ -27,6 +26,23 @@ public class MyLinkedList<T>
             Data = data;
             Next = null;
         }
+    }
+    public void Add(T item)
+    {
+        Node<T> newNode = new Node<T>(item);
+        if (head == null)
+        {
+            head = newNode;
+            tail = newNode;
+            tail.Next = head;
+        }
+        else
+        {
+            newNode.Next = head;
+            tail.Next = newNode;
+            tail = newNode;
+        }
+        count++;
     }
 }
  
