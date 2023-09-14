@@ -45,6 +45,42 @@ public class MyLinkedList<T> : IEnumerable<T>
         count++;
     }
 
+    public bool Remove(T item)
+    {
+        if (head == null)
+            return false;
+
+        Node<T> current = head;
+        Node<T> previous = null;
+
+        do
+        {
+            if (current.Data.Equals(item))
+            {
+                if (previous != null)
+                {
+                    previous.Next = current.Next;
+                    if (current == head)
+                        head = current.Next;
+                    if (current == tail)
+                        tail = previous;
+                }
+                else
+                {
+                    head = head.Next;
+                    tail.Next = head;
+                }
+                count--;
+                return true;
+            }
+
+            previous = current;
+            current = current.Next;
+        } while (current != head);
+
+        return false;
+    }
+
     public IEnumerator<T> GetEnumerator()
     {
         if (head != null)
