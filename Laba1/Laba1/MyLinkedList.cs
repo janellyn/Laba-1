@@ -105,6 +105,13 @@ public class MyLinkedList<T> : IEnumerable<T>
         return false;
     }
 
+    public void Clear()
+    {
+        head = null;
+        tail = null;
+        count = 0;
+    }
+
     public event Action<T> ItemAdded;
 
     public event Action<T> ItemRemoved;
