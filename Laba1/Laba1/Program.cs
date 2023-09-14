@@ -43,6 +43,7 @@ public class MyLinkedList<T> : IEnumerable<T>
             tail = newNode;
         }
         count++;
+        OnItemAdded(item);
     }
 
     public bool Remove(T item)
@@ -71,6 +72,7 @@ public class MyLinkedList<T> : IEnumerable<T>
                     tail.Next = head;
                 }
                 count--;
+                OnItemRemoved(item);
                 return true;
             }
 
