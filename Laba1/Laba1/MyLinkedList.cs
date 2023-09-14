@@ -163,6 +163,14 @@ public class MyLinkedList<T> : IEnumerable<T>
 
     public event Action<T> ItemRemoved;
 
+    public event Action<T> Contain;
+
+    public event Action<T> ClearUp;
+
+    public event Action<T> InsertAfterItem;
+
+    public event Action<T> ItemAddedFirst;
+
     protected virtual void OnItemAdded(T item)
     {
         ItemAdded?.Invoke(item);
@@ -171,6 +179,26 @@ public class MyLinkedList<T> : IEnumerable<T>
     protected virtual void OnItemRemoved(T item)
     {
         ItemRemoved?.Invoke(item);
+    }
+
+    protected virtual void OnItemContain(T item)
+    {
+        Contain?.Invoke(item);
+    }
+
+    protected virtual void OnItemClearUp(T item)
+    {
+        ClearUp?.Invoke(item);
+    }
+
+    protected virtual void OnInsertAfterItem(T item, T item2)
+    {
+        InsertAfterItem?.Invoke(item);
+    }
+
+    protected virtual void OnItemAddedFirst(T item)
+    {
+        ItemAddedFirst?.Invoke(item);
     }
 
     public IEnumerator<T> GetEnumerator()
