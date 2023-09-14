@@ -112,6 +112,34 @@ public class MyLinkedList<T> : IEnumerable<T>
         count = 0;
     }
 
+    public bool InsertAfter(T existingItem, T newItem)
+    {
+        Node<T> newNode = new Node<T>(newItem);
+
+        if (head == null)
+            return false;
+
+        Node<T> current = head;
+
+        do
+        {
+            if (current.Data.Equals(existingItem))
+            {
+                newNode.Next = current.Next;
+                current.Next = newNode;
+                if (current == tail)
+                    tail = newNode;
+                count++;
+                OnItemAdded(newItem);
+                return true;
+            }
+
+            current = current.Next;
+        } while (current != head);
+
+        return false;
+    }
+
     public event Action<T> ItemAdded;
 
     public event Action<T> ItemRemoved;
