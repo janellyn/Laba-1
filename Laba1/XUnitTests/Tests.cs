@@ -89,5 +89,17 @@ namespace XUnitTests
             array = new int[2];
             Assert.Throws<ArgumentException>(() => list.CopyTo(array, 0));
         }
+
+        [Theory]
+        [InlineData(-11, 0)]
+        [InlineData(0, 5)]
+        [InlineData(2, 1)]
+        [InlineData(33, 2)]
+        public void InsertedAfter(int value, int newvalue)
+        {
+            MyLinkedList<int> list = new MyLinkedList<int>() { -11, 0, 2, 33 };
+            list.InsertAfter(value, newvalue);
+            Assert.Contains(newvalue, list);
+        }
     }
 }
