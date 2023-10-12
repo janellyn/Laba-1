@@ -101,5 +101,30 @@ namespace XUnitTests
             list.InsertAfter(value, newvalue);
             Assert.Contains(newvalue, list);
         }
+
+        [Theory]
+        [InlineData(-5, 0)]
+        [InlineData(1, 5)]
+        [InlineData(6, 1)]
+        [InlineData(105, 2)]
+        public void InsertedAfterNotExistingItem(int value, int newvalue)
+        {
+            MyLinkedList<int> list = new MyLinkedList<int>() { -11, 0, 2, 33 };
+            bool result = list.InsertAfter(value, newvalue);
+            Assert.False(result);
+        }
+
+        [Theory]
+        [InlineData(-11)]
+        [InlineData(0)]
+        [InlineData(1)]
+        [InlineData(33)]
+        [InlineData(1067 / 2)]
+        public void AddedFirstElement(int value)
+        {
+            MyLinkedList<int> list = new MyLinkedList<int>() { 2, 4 };
+            list.AddFirst(value);
+            Assert.Equal(value, list.First());
+        }
     }
 }
