@@ -136,7 +136,7 @@ public class MyLinkedList<T> : ICollection<T>, IEnumerable<T>
         Node<T> current = head;
         int currentIndex = 0;
 
-        while (current != null)
+        while (current != null && arrayIndex + currentIndex < array.Length)
         {
             array[arrayIndex + currentIndex] = current.Data;
             current = current.Next;
