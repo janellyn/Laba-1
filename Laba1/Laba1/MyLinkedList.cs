@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 
-public class MyLinkedList<T> : IEnumerable<T>
+public class MyLinkedList<T> : ICollection<T>, IEnumerable<T>
 {
     private Node<T> head;
     private Node<T> tail;
@@ -15,6 +15,7 @@ public class MyLinkedList<T> : IEnumerable<T>
     }
 
     public int Count => count;
+    public bool IsReadOnly => false;
 
     private class Node<TNode>
     {
@@ -114,12 +115,33 @@ public class MyLinkedList<T> : IEnumerable<T>
         return false;
     }
 
-    public void Clear(T item)
+    public void Clear()
     {
         head = null;
         tail = null;
         count = 0;
-        OnItemClearUp(item);
+    }
+
+    public void CopyTo(T[] array, int arrayIndex)
+    {
+        if (array == null)
+            throw new ArgumentNullException(nameof(array));
+
+        if (arrayIndex < 0 || arrayIndex >= array.Length)
+            throw new ArgumentOutOfRangeException(nameof(arrayIndex));
+
+        if (count > array.Length - arrayIndex)
+            throw new ArgumentException("The number of elements in the source collection is greater than the available space from the index to the end of the destination array.");
+
+        Node<T> current = head;
+        int currentIndex = 0;
+
+        while (current != null)
+        {
+            array[arrayIndex + currentIndex] = current.Data;
+            current = current.Next;
+            currentIndex++;
+        }
     }
 
     public bool InsertAfter(T existingItem, T newItem)
@@ -175,8 +197,6 @@ public class MyLinkedList<T> : IEnumerable<T>
 
     public event Action<T> Contain;
 
-    public event Action<T> ClearUp;
-
     public event Action<T> ItemAddedFirst;
 
     protected virtual void OnItemAdded(T item)
@@ -192,11 +212,6 @@ public class MyLinkedList<T> : IEnumerable<T>
     protected virtual void OnItemContain(T item)
     {
         Contain?.Invoke(item);
-    }
-
-    protected virtual void OnItemClearUp(T item)
-    {
-        ClearUp?.Invoke(item);
     }
 
     protected virtual void OnItemAddedFirst(T item)

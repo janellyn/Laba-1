@@ -7,4 +7,16 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="xunit" Version="2.5.1" />
+    <PackageReference Include="xunit.assert" Version="2.5.1" />
+    <PackageReference Include="xunit.core" Version="2.5.1" />
+    <PackageReference Include="xunit.extensibility.core" Version="2.5.1" />
+    <PackageReference Include="xunit.extensibility.execution" Version="2.5.1" />
+    <PackageReference Include="xunit.runner.console" Version="2.5.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
 </Project>

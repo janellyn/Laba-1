@@ -10,7 +10,6 @@ class Program
         list.ItemAdded += item => Console.WriteLine($"Елемент {item} доданий до списку.");
         list.ItemRemoved += item => Console.WriteLine($"Елемент {item} видалений з списку.");
         list.Contain += item => Console.WriteLine($"Елемент {item} є у списку.");
-        list.ClearUp += item => Console.WriteLine($"Список чистий.");
         list.ItemAddedFirst += item => Console.WriteLine($"Елемент {item} доданий на перше місце у списку.");
 
         list.Add(1);
