@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Diagnostics.CodeAnalysis;
 
 class Program
 {
+    [ExcludeFromCodeCoverage]
     static void Main()
     {
         MyLinkedList<int> list = new MyLinkedList<int>();

@@ -101,3 +101,5 @@ C:\Users\Женя\source\repos\Laba-1\Laba1\XUnitTests\obj\Debug\net6.0\refint\X
 C:\Users\Женя\source\repos\Laba-1\Laba1\XUnitTests\obj\Debug\net6.0\XUnitTests.pdb
 C:\Users\Женя\source\repos\Laba-1\Laba1\XUnitTests\obj\Debug\net6.0\XUnitTests.genruntimeconfig.cache
 C:\Users\Женя\source\repos\Laba-1\Laba1\XUnitTests\obj\Debug\net6.0\ref\XUnitTests.dll
+C:\Users\Женя\source\repos\Laba-1\Laba1\XUnitTests\bin\Debug\net6.0\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\Женя\source\repos\Laba-1\Laba1\XUnitTests\bin\Debug\net6.0\xunit.runner.utility.netcoreapp10.dll

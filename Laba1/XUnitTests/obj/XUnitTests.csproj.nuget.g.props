@@ -14,15 +14,19 @@
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)xunit.runner.visualstudio\2.5.1\build\net6.0\xunit.runner.visualstudio.props" Condition="Exists('$(NuGetPackageRoot)xunit.runner.visualstudio\2.5.1\build\net6.0\xunit.runner.visualstudio.props')" />
-    <Import Project="$(NuGetPackageRoot)xunit.runner.console\2.5.1\build\xunit.runner.console.props" Condition="Exists('$(NuGetPackageRoot)xunit.runner.console\2.5.1\build\xunit.runner.console.props')" />
-    <Import Project="$(NuGetPackageRoot)xunit.core\2.5.1\build\xunit.core.props" Condition="Exists('$(NuGetPackageRoot)xunit.core\2.5.1\build\xunit.core.props')" />
+    <Import Project="$(NuGetPackageRoot)xunit.runner.visualstudio\2.5.3\build\net6.0\xunit.runner.visualstudio.props" Condition="Exists('$(NuGetPackageRoot)xunit.runner.visualstudio\2.5.3\build\net6.0\xunit.runner.visualstudio.props')" />
+    <Import Project="$(NuGetPackageRoot)xunit.runner.console\2.5.2\build\xunit.runner.console.props" Condition="Exists('$(NuGetPackageRoot)xunit.runner.console\2.5.2\build\xunit.runner.console.props')" />
+    <Import Project="$(NuGetPackageRoot)xunit.core\2.5.2\build\xunit.core.props" Condition="Exists('$(NuGetPackageRoot)xunit.core\2.5.2\build\xunit.core.props')" />
+    <Import Project="$(NuGetPackageRoot)reportgenerator\5.1.26\build\netstandard2.0\ReportGenerator.props" Condition="Exists('$(NuGetPackageRoot)reportgenerator\5.1.26\build\netstandard2.0\ReportGenerator.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.testplatform.testhost\17.7.2\build\netcoreapp3.1\Microsoft.TestPlatform.TestHost.props" Condition="Exists('$(NuGetPackageRoot)microsoft.testplatform.testhost\17.7.2\build\netcoreapp3.1\Microsoft.TestPlatform.TestHost.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.codecoverage\17.7.2\build\netstandard2.0\Microsoft.CodeCoverage.props" Condition="Exists('$(NuGetPackageRoot)microsoft.codecoverage\17.7.2\build\netstandard2.0\Microsoft.CodeCoverage.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.net.test.sdk\17.7.2\build\netcoreapp3.1\Microsoft.NET.Test.Sdk.props" Condition="Exists('$(NuGetPackageRoot)microsoft.net.test.sdk\17.7.2\build\netcoreapp3.1\Microsoft.NET.Test.Sdk.props')" />
+    <Import Project="$(NuGetPackageRoot)coverlet.msbuild\6.0.0\build\coverlet.msbuild.props" Condition="Exists('$(NuGetPackageRoot)coverlet.msbuild\6.0.0\build\coverlet.msbuild.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Pkgxunit_runner_console Condition=" '$(Pkgxunit_runner_console)' == '' ">C:\Users\Женя\.nuget\packages\xunit.runner.console\2.5.1</Pkgxunit_runner_console>
-    <Pkgxunit_analyzers Condition=" '$(Pkgxunit_analyzers)' == '' ">C:\Users\Женя\.nuget\packages\xunit.analyzers\1.3.0</Pkgxunit_analyzers>
+    <Pkgxunit_runner_console Condition=" '$(Pkgxunit_runner_console)' == '' ">C:\Users\Женя\.nuget\packages\xunit.runner.console\2.5.2</Pkgxunit_runner_console>
+    <Pkgxunit_analyzers Condition=" '$(Pkgxunit_analyzers)' == '' ">C:\Users\Женя\.nuget\packages\xunit.analyzers\1.4.0</Pkgxunit_analyzers>
+    <PkgReportGenerator Condition=" '$(PkgReportGenerator)' == '' ">C:\Users\Женя\.nuget\packages\reportgenerator\5.1.26</PkgReportGenerator>
+    <PkgOpenCover Condition=" '$(PkgOpenCover)' == '' ">C:\Users\Женя\.nuget\packages\opencover\4.7.1221</PkgOpenCover>
   </PropertyGroup>
 </Project>

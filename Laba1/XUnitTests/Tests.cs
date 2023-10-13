@@ -16,6 +16,13 @@ namespace XUnitTests
             Assert.Contains(value, list);
         }
 
+        [Fact]
+        public void AddedInvalidElement()
+        {
+            MyLinkedList<string> list = new MyLinkedList<string>();
+            Assert.Throws<ArgumentNullException>(() => list.Add(null));
+        }
+
         [Theory]
         [InlineData(-22)]
         [InlineData(0)]
@@ -26,6 +33,13 @@ namespace XUnitTests
             MyLinkedList<int> list = new MyLinkedList<int>() { -22, 0, 4, 66 };
             list.Remove(value);
             Assert.DoesNotContain(value, list);
+        }
+
+        [Fact]
+        public void RemovedInvalidElement()
+        {
+            MyLinkedList<string> list = new MyLinkedList<string>();
+            Assert.Throws<ArgumentNullException>(() => list.Remove(null));
         }
 
         [Theory]

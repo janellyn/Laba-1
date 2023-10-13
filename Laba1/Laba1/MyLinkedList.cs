@@ -1,7 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 
-public class MyLinkedList<T> : ICollection<T>, IEnumerable<T>
+public class MyLinkedList<T> : ICollection<T>, IEnumerable<T> 
 {
     private Node<T> head;
     private Node<T> tail;

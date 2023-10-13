@@ -18,3 +18,4 @@ C:\Users\Женя\source\repos\Laba-1\Laba1\Laba1\bin\Debug\net6.0\xunit.assert.
 C:\Users\Женя\source\repos\Laba-1\Laba1\Laba1\bin\Debug\net6.0\xunit.core.dll
 C:\Users\Женя\source\repos\Laba-1\Laba1\Laba1\bin\Debug\net6.0\xunit.execution.dotnet.dll
 C:\Users\Женя\source\repos\Laba-1\Laba1\Laba1\obj\Debug\net6.0\Laba1.csproj.CopyComplete
+C:\Users\Женя\source\repos\Laba-1\Laba1\Laba1\bin\Debug\net6.0\Microsoft.VisualStudio.CodeCoverage.Shim.dll
