@@ -221,7 +221,7 @@ var assemblies = [
   {
     "name": "Laba1",
     "classes": [
-      { "name": "MyLinkedList<T>", "rp": "Laba1_MyLinkedList_1.html", "cl": 143, "ucl": 16, "cal": 159, "tl": 238, "cb": 45, "tb": 58, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "MyLinkedList<T>", "rp": "Laba1_MyLinkedList_1.html", "cl": 155, "ucl": 4, "cal": 159, "tl": 238, "cb": 51, "tb": 58, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
     ]},
 ];
 

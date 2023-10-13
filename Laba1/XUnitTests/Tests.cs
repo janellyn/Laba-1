@@ -1,4 +1,6 @@
 
+using System.Collections.Generic;
+
 namespace XUnitTests
 {
     public class Tests
@@ -14,6 +16,7 @@ namespace XUnitTests
             MyLinkedList<int> list = new MyLinkedList<int>();
             list.Add(value);
             Assert.Contains(value, list);
+            Assert.False(list.IsReadOnly);
         }
 
         [Fact]
@@ -33,6 +36,7 @@ namespace XUnitTests
             MyLinkedList<int> list = new MyLinkedList<int>() { -22, 0, 4, 66 };
             list.Remove(value);
             Assert.DoesNotContain(value, list);
+            Assert.Equal(3, list.Count);
         }
 
         [Fact]
@@ -40,6 +44,13 @@ namespace XUnitTests
         {
             MyLinkedList<string> list = new MyLinkedList<string>();
             Assert.Throws<ArgumentNullException>(() => list.Remove(null));
+        }
+
+        [Fact]
+        public void RemovedElementFromEmptyList()
+        {
+            MyLinkedList<int> list = new MyLinkedList<int>() { };
+            Assert.False(list.Remove(5));
         }
 
         [Theory]
@@ -64,6 +75,13 @@ namespace XUnitTests
             MyLinkedList<int> list = new MyLinkedList<int>() { -22, 0, 4, 66 };
             bool result = list.Contains(value);
             Assert.False(result);
+        }
+
+        [Fact]
+        public void ContainsInEmptyList()
+        {
+            MyLinkedList<int> list = new MyLinkedList<int>() { };
+            Assert.False(list.Contains(5));
         }
 
         [Fact]
@@ -128,6 +146,13 @@ namespace XUnitTests
             Assert.False(result);
         }
 
+        [Fact]
+        public void InsertedAfterInEmptyList()
+        {
+            MyLinkedList<int> list = new MyLinkedList<int>() { };
+            Assert.False(list.InsertAfter(5, 2));
+        }
+
         [Theory]
         [InlineData(-11)]
         [InlineData(0)]
@@ -140,5 +165,16 @@ namespace XUnitTests
             list.AddFirst(value);
             Assert.Equal(value, list.First());
         }
+
+        [Theory]
+        [InlineData(0)]
+        [InlineData(1067 / 2)]
+        public void AddedFirstElementInEmptyList(int value)
+        {
+            MyLinkedList<int> list = new MyLinkedList<int>() { };
+            list.AddFirst(value);
+            Assert.Equal(value, list.First());
+        }
+
     }
 }
